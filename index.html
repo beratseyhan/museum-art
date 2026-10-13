@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Art</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var have = ['en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'ru', 'pl', 'nl', 'sv', 'ja', 'ko', 'zh-hans', 'zh-hant', 'id', 'vi', 'fil', 'th'];
+  var langs = navigator.languages || [navigator.language || 'en'];
+  for (var i = 0; i < langs.length; i++) {
+    var l = (langs[i] || '').toLowerCase(), code = null;
+    if (l.indexOf('zh') === 0) code = /hant|tw|hk|mo/.test(l) ? 'zh-hant' : 'zh-hans';
+    else if (l.indexOf('fil') === 0 || l.indexOf('tl') === 0) code = 'fil';
+    else code = l.split('-')[0];
+    if (have.indexOf(code) >= 0) { location.replace(code + '.html'); return; }
+  }
+  location.replace('en.html');
+})();
+</script>
+</head>
+<body>
+<main class="picker">
+  <img class="app-icon" src="icon.png" alt="Museum Art" width="128" height="128">
+  <h1>Museum Art</h1>
+  <ul><li><a href="en.html" lang="en">English</a></li><li><a href="tr.html" lang="tr">Türkçe</a></li><li><a href="de.html" lang="de">Deutsch</a></li><li><a href="fr.html" lang="fr">Français</a></li><li><a href="es.html" lang="es">Español</a></li><li><a href="it.html" lang="it">Italiano</a></li><li><a href="pt.html" lang="pt-BR">Português (Brasil)</a></li><li><a href="ru.html" lang="ru">Русский</a></li><li><a href="pl.html" lang="pl">Polski</a></li><li><a href="nl.html" lang="nl">Nederlands</a></li><li><a href="sv.html" lang="sv">Svenska</a></li><li><a href="ja.html" lang="ja">日本語</a></li><li><a href="ko.html" lang="ko">한국어</a></li><li><a href="zh-hans.html" lang="zh-Hans">简体中文</a></li><li><a href="zh-hant.html" lang="zh-Hant">繁體中文</a></li><li><a href="id.html" lang="id">Bahasa Indonesia</a></li><li><a href="vi.html" lang="vi">Tiếng Việt</a></li><li><a href="fil.html" lang="fil">Filipino</a></li><li><a href="th.html" lang="th">ไทย</a></li></ul>
+</main>
+</body>
+</html>
